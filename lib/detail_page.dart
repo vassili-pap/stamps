@@ -25,22 +25,22 @@ class DetailPage extends StatelessWidget {
                       children: <Widget>[
                         SizedBox(height: 300),
                         Text(
+                        'Stempelkarte für',
+                          style: TextStyle(
+                            fontFamily: 'Avenir',
+                            fontSize: 31,
+                            color: primaryTextColor,
+                            fontWeight: FontWeight.w300,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
                           planetInfo.name,
                           style: TextStyle(
                             fontFamily: 'Avenir',
                             fontSize: 56,
                             color: primaryTextColor,
                             fontWeight: FontWeight.w900,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                        Text(
-                          'Solar System',
-                          style: TextStyle(
-                            fontFamily: 'Avenir',
-                            fontSize: 31,
-                            color: primaryTextColor,
-                            fontWeight: FontWeight.w300,
                           ),
                           textAlign: TextAlign.left,
                         ),
@@ -100,25 +100,26 @@ class DetailPage extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: -64,
+              right: -14,
+              top: 30,
               child: Hero(
                   tag: planetInfo.position,
-                  child: Image.asset(planetInfo.iconImage)),
+                  child: Image.asset(planetInfo.iconImage, scale: 2)),
             ),
-            Positioned(
-              top: 60,
-              left: 32,
-              child: Text(
-                planetInfo.position.toString(),
-                style: TextStyle(
-                  fontFamily: 'Avenir',
-                  fontSize: 247,
-                  color: primaryTextColor.withOpacity(0.08),
-                  fontWeight: FontWeight.w900,
-                ),
-                textAlign: TextAlign.left,
-              ),
-            ),
+            // Positioned(
+            //   top: 60,
+            //   left: 32,
+            //   child: Text(
+            //     planetInfo.position.toString(),
+            //     style: TextStyle(
+            //       fontFamily: 'Avenir',
+            //       fontSize: 247,
+            //       color: primaryTextColor.withOpacity(0.08),
+            //       fontWeight: FontWeight.w900,
+            //     ),
+            //     textAlign: TextAlign.left,
+            //   ),
+            // ),
             IconButton(
               icon: Icon(Icons.arrow_back_ios),
               onPressed: () {

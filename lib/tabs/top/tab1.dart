@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_universe/detail_page.dart';
 import 'package:flutter_universe/map_page.dart';
-import 'constants.dart';
+import '../../constants.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-import 'data.dart';
+import '../../data.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -32,6 +32,9 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(32.0),
                 child: Column(
                   children: <Widget>[
+                    Center(child:
+                      Image.asset('assets/stymps2.png', scale: 1.5),
+                    ),
                     Text(
                       'Deine Stempelkarten',
                       style: TextStyle(
@@ -68,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                height: 500,
+                height: 480,
                 padding: const EdgeInsets.only(left: 32),
                 child: Swiper(
                   itemCount: planets.length,
@@ -94,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                         children: <Widget>[
                           Column(
                             children: <Widget>[
-                              SizedBox(height: 100),
+                              SizedBox(height: 30),  //80
                               Card(
                                 elevation: 8,
                                 shape: RoundedRectangleBorder(
@@ -108,8 +111,18 @@ class _HomePageState extends State<HomePage> {
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
                                       SizedBox(
-                                        height: 130,
+                                        height: 50,
                                         width: 100),
+                                        Text(
+                                        'Hermannstraße 5 \n63069 Offenbach am Main',
+                                        style: TextStyle(
+                                          fontFamily: 'Avenir',
+                                          fontSize: 17,
+                                          color: primaryTextColor,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        textAlign: TextAlign.left,
+                                      ),
                                       Text(
                                         planets[index].name,
                                         style: TextStyle(
@@ -162,8 +175,8 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                           Positioned(
-                              top: 40,
-                              left: 110,
+                              top: -00,
+                              left: 140,
                           child:
                           Hero(
                             tag: planets[index].position,
@@ -173,20 +186,20 @@ class _HomePageState extends State<HomePage> {
                           ),
                           ),
                           
-                          Positioned(
-                            left: 24,
-                            bottom: 60,
-                            child: Text(
-                              planets[index].position.toString(),
-                              style: TextStyle(
-                                fontFamily: 'Avenir',
-                                fontSize: 200,
-                                color: primaryTextColor.withOpacity(0.08),
-                                fontWeight: FontWeight.w900,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
+                          // Positioned(
+                          //   left: 24,
+                          //   bottom: 60,
+                          //   child: Text(
+                          //     planets[index].position.toString(),
+                          //     style: TextStyle(
+                          //       fontFamily: 'Avenir',
+                          //       fontSize: 200,
+                          //       color: primaryTextColor.withOpacity(0.08),
+                          //       fontWeight: FontWeight.w900,
+                          //     ),
+                          //     textAlign: TextAlign.left,
+                          //   ),
+                          // ),
                         ],
                       ),
                     );
@@ -195,43 +208,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-        ),
-      ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(36.0),
-          ),
-          color: navigationColor,
-        ),
-        padding: const EdgeInsets.all(24),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            IconButton(
-              icon: Image.asset('assets/menu_icon.png'),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Image.asset('assets/search_icon.png'),
-              onPressed: () {
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, a, b) => MapPage(
-                            ),
-                          ),
-                        );
-              },
-                    
-
-                      
-            ),
-            IconButton(
-              icon: Image.asset('assets/profile_icon.png'),
-              onPressed: () {},
-            ),
-          ],
         ),
       ),
     );
